@@ -1,8 +1,8 @@
-1. voice_ppv(LLM 음성제어 pkg)
+## 1. voice_ppv(LLM 음성제어 pkg)
    get_keyword_screw.py
   - '전체 검사해' : 나사 전체를 다 보라고 robot_control에게 명령함
   - 'n번 위치로 이동해' : 나사 번호 좌표로 이동하라고 robot_control에게 명령함
-2. robot_ppv(로봇 제어 pkg)
+## 2. robot_ppv(로봇 제어 pkg)
   1) robot_control_test4.py
   - yolo에서 받은 좌표정보를 순서대로 번호 매김
   - 전체 조사 기능 + 번호 위치 이동 기능 포함
