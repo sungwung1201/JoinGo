@@ -22,4 +22,11 @@
    1. 각 ws 탐색 모션 하면서 /vision_inspect srv와 연동 
    2. 나사 좌표면 이동 >> ws + 나사 좌표 명령 구현
    3. 나사 좌표를 이용한 법선 벡터를 통해 ws별 자세값 + 수직 축 인식
+   4. 나사 조일때마다 수직축을 1.5mm로 하강후 조이는 기능 추가
 
+
+# 5월 24일
+   1. realtime_3d_mapper_multi노드와 연동 성공
+   2. db의 live_scan에서 좌표 가져옴
+   3. workspace 준비 기능 추가
+   4. 나사체결 이후 db에 status를 normal로 반영
