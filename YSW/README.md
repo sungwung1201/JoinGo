@@ -1,102 +1,94 @@
-<h2>성웅 담당 작업 타임라인</h2>
+## 성웅 담당 작업 타임라인
 
-<table>
-  <thead>
-    <tr>
-      <th nowrap>작업명</th>
-      <th nowrap>날짜</th>
-      <th nowrap>담당자</th>
-      <th nowrap>파트</th>
-      <th nowrap>단계</th>
-      <th nowrap>완료 여부</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td nowrap>협동2 프로젝트 전체 주제 기획 및 시스템 방향 설정</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>팀장/프로젝트 기획</td><td nowrap>기획</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>스마트팩토리형 볼트 검사 자동화 시스템 기획</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>팀장/프로젝트 기획</td><td nowrap>기획</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원별 역할 분담 및 개발 파트 조율</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>팀장/통합 관리</td><td nowrap>역할 분담</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>전체 개발 일정 조율 및 작업 우선순위 정리</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>팀장/일정 관리</td><td nowrap>일정 조율</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>앱/웹/서버/DB/비전/로봇 파트 간 연동 구조 검토</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>팀장/통합 설계</td><td nowrap>구조 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원별 구현 방향 검토 및 개발 피드백 진행</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>팀장/코드 리뷰</td><td nowrap>검토/피드백</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>비전 검사 시스템에서 YOLO 적용 가능성 검토</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>모델 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Roboflow 기반 데이터셋 구성 및 초기 학습 방향 검토</td><td nowrap>2026년 5월 13일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>데이터셋 준비</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Roboflow credit 및 모델 업로드 문제 분석</td><td nowrap>2026년 5월 14일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>로컬 LabelImg 기반 라벨링 환경 구축 방향 정리</td><td nowrap>2026년 5월 14일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>라벨링 환경</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>LabelImg 실행 오류 및 PyQt float 타입 오류 해결 방향 정리</td><td nowrap>2026년 5월 14일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>YOLOv8n 초기 학습 결과 분석</td><td nowrap>2026년 5월 15일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>모델 학습</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>good/ng 데이터 불균형 문제 분석</td><td nowrap>2026년 5월 15일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>데이터 분석</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>추가 good 데이터 반영 및 데이터셋 균형 개선 방향 정리</td><td nowrap>2026년 5월 15일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>데이터셋 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>YOLOv8n에서 YOLO11x img960으로 모델 개선 방향 검토</td><td nowrap>2026년 5월 16일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>모델 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>실제 환경에서 YOLO 오판 문제 분석</td><td nowrap>2026년 5월 16일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>실환경 디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>한 객체에 good/ng 박스가 동시에 뜨는 문제 분석</td><td nowrap>2026년 5월 16일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>실환경 디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>agnostic_nms 적용을 통한 중복 클래스 박스 완화 방향 정리</td><td nowrap>2026년 5월 16일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>추론 옵션 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>detector + classifier 2단계 구조 검토</td><td nowrap>2026년 5월 17일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>모델 구조 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>good/ng 분류 방식의 한계 판단 및 적용 범위 재정리</td><td nowrap>2026년 5월 17일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>기술 의사결정</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>최종 YOLO 사용 목적을 볼트 존재 여부 및 위치 확인 중심으로 조정</td><td nowrap>2026년 5월 18일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>적용 방향 확정</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>RealSense 기반 실시간 YOLO 모델 로딩 및 동작 로그 확인</td><td nowrap>2026년 5월 18일</td><td nowrap>성웅</td><td nowrap>AI/비전</td><td nowrap>실행 테스트</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원 3D 매핑 구현 과정 구조 검토 및 디버깅 조언</td><td nowrap>2026년 5월 19일</td><td nowrap>성웅</td><td nowrap>팀장/3D 매핑 지원</td><td nowrap>구조 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>RealSense 기반 3D 작업 공간 생성 과정 확인 및 문제 원인 분석 지원</td><td nowrap>2026년 5월 19일</td><td nowrap>성웅</td><td nowrap>팀장/3D 매핑 지원</td><td nowrap>디버깅 지원</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>볼트 위치 검출 결과가 3D 화면에 반영되는 흐름 검토</td><td nowrap>2026년 5월 20일</td><td nowrap>성웅</td><td nowrap>팀장/비전-3D 연동 지원</td><td nowrap>통합 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>높이 기반 볼트 상태 측정 방식 적용 방향 검토</td><td nowrap>2026년 5월 20일</td><td nowrap>성웅</td><td nowrap>비전/알고리즘</td><td nowrap>검사 로직 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>검사 결과 Firebase Realtime Database 저장 구조 연동 검토</td><td nowrap>2026년 5월 20일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>DB 연동</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Firebase 검사 결과와 웹 화면 연동 구조 확인</td><td nowrap>2026년 5월 20일</td><td nowrap>성웅</td><td nowrap>웹/DB 연동</td><td nowrap>통합 테스트</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>KJH 웹 화면의 실시간 검사 데이터 기준 검토</td><td nowrap>2026년 5월 21일</td><td nowrap>성웅</td><td nowrap>웹/DB 연동</td><td nowrap>구조 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>실시간 화면은 live_scan 기준으로 처리하도록 방향 정리</td><td nowrap>2026년 5월 21일</td><td nowrap>성웅</td><td nowrap>웹/DB 연동</td><td nowrap>데이터 기준 정리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>검사 이력 화면은 indexes → sessions 기준으로 조회하도록 방향 정리</td><td nowrap>2026년 5월 21일</td><td nowrap>성웅</td><td nowrap>웹/DB 연동</td><td nowrap>데이터 기준 정리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>defect / defective / ng / failed 상태값을 모두 불량으로 처리하는 조건 정리</td><td nowrap>2026년 5월 21일</td><td nowrap>성웅</td><td nowrap>웹/DB 연동</td><td nowrap>상태값 정규화</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>DB 필드를 추가하지 않고 기존 구조를 유지하는 수정 방향 조율</td><td nowrap>2026년 5월 21일</td><td nowrap>성웅</td><td nowrap>팀장/DB 조율</td><td nowrap>코드 수정 방향</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원 KJH 화면 수정 방향 피드백 및 반영 기준 정리</td><td nowrap>2026년 5월 21일</td><td nowrap>성웅</td><td nowrap>팀장/웹 조율</td><td nowrap>피드백</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>법선 벡터 기반 로봇 자세 제어 방향 정리</td><td nowrap>2026년 5월 22일</td><td nowrap>성웅</td><td nowrap>로봇 제어</td><td nowrap>자세 계산</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>로봇 제어와 연동하기 위한 실시간 DB 구조 live_scan 추가 방향 정리</td><td nowrap>2026년 5월 24일</td><td nowrap>성웅</td><td nowrap>로봇/DB 연동</td><td nowrap>실시간 DB</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>live_scan/workstations 기반 실시간 3D 검사 화면 연동 구조 검토</td><td nowrap>2026년 5월 24일</td><td nowrap>성웅</td><td nowrap>팀장/웹-3D 연동 지원</td><td nowrap>통합 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원 3D 렌더링 화면에서 발생한 표시 문제 확인 및 수정 방향 조언</td><td nowrap>2026년 5월 24일</td><td nowrap>성웅</td><td nowrap>팀장/웹-3D 연동 지원</td><td nowrap>디버깅 지원</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>PointCloud 웹 시각화 렉 문제에 대한 원인 분석 및 최적화 방향 조언</td><td nowrap>2026년 5월 25일</td><td nowrap>성웅</td><td nowrap>팀장/3D 매핑 지원</td><td nowrap>성능 개선 조언</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Plotly 기반 3D 렌더링 부하 감소 방향 검토 및 팀원 피드백</td><td nowrap>2026년 5월 25일</td><td nowrap>성웅</td><td nowrap>팀장/웹-3D 연동 지원</td><td nowrap>피드백</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>나사 중심점 검출 정확도 개선 방향 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>비전/3D 매핑</td><td nowrap>알고리즘 개선 검토</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>나사 불량 판단 기준 수정 및 높이 기반 검사 로직 보완 방향 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>비전/알고리즘</td><td nowrap>검사 로직 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>3D 맵에서 나사 영역과 작업대 영역이 구분되도록 후처리 방향 조언</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/3D 매핑 지원</td><td nowrap>알고리즘 조언</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Firebase DB 구조를 captures 중심에서 session 기반 구조로 재설계</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>DB 구조 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>inspections/{site_id}/sessions/{session_id}/workstations/{workstation_id}/captures 구조 적용</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>DB 구조 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>session_id를 실제 검사 시작 시점 기준으로 생성하도록 수정</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>세션 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>ensure_session_started 로직 추가 및 세션 누적 관리 구조 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>세션 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>session_total_captures / session_total_markers / normal_count / defect_count 누적 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>통계 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>workstation_id 자동 생성 및 작업대별 capture 분리 저장 구조 적용</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>작업대 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>capture metadata에 session_id / workstation_id / robot_id / camera_id 포함</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>메타데이터 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>기존 flat captures 경로 mirror 저장 유지로 구형 GUI 호환성 확보</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>하위 호환성</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Firebase Storage 경로를 session/workstation/capture 기준으로 변경</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase Storage</td><td nowrap>파일 경로 개선</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>indexes/latest 포인터 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>조회 최적화</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>indexes/capture_lookup 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>조회 최적화</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>indexes/captures_by_date 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>날짜별 조회</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>indexes/captures_by_workstation 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>작업대별 조회</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>indexes/defects_by_status/unresolved 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>불량 추적</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>sites/latest_session_id 및 latest_capture_id 업데이트 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>사이트 상태 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>robots/current_session_id / current_workstation_id / current_capture_id 업데이트 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>로봇/DB 연동</td><td nowrap>로봇 상태 연동</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>twin_state/current_session 업데이트 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>디지털트윈/DB</td><td nowrap>현재 세션 표시</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>twin_state/current_inspection 업데이트 구조 추가</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>디지털트윈/DB</td><td nowrap>최신 검사 표시</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>Firebase DB 연결 및 Storage bucket 연결 상태 확인</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>markers None 저장 문제 원인 분석 및 YOLO 감지 결과 0개 케이스 확인</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>session 구조 적용 중 SyntaxError 발생 후 Git restore로 정상 버전 복구</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>코드 통합/DB</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>py_compile / import 테스트 / 경로 생성 테스트로 DB 코드 정적 검증</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>코드 통합/DB</td><td nowrap>검증</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>GUI/API/Robot이 session 구조를 우선 조회하고 flat 구조를 fallback으로 사용하도록 방향 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>통합 관리/DB</td><td nowrap>호환성 설계</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>협동2 시스템 아키텍처 자료 제작</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>문서화/설계 자료</td><td nowrap>시스템 구조 시각화</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>협동2 전체 동작 흐름 플로우차트 제작</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>문서화/설계 자료</td><td nowrap>프로세스 시각화</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>시스템 아키텍처와 플로우차트의 선 배치, 박스 구조, 흐름 방향 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>문서화/설계 자료</td><td nowrap>자료 보완</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>발표용 공통 구조와 각자 PPT 제작 방향 조율</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/발표 조율</td><td nowrap>발표 자료 조율</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원별 폴더 구조 CEY / KJH / YJH / YSW 확인 및 통합 기준 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/GitHub</td><td nowrap>협업 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>GitHub collaborator main push 권한 및 VS Code push 오류 해결 지원</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/GitHub</td><td nowrap>협업 관리</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>팀원별 구현 파트 충돌 여부 확인 및 수정 방향 피드백</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/통합 관리</td><td nowrap>코드 리뷰</td><td nowrap>완료</td></tr>
-    <tr><td nowrap>전체 파트 진행 상황 검토 및 최종 통합 방향 조율</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/통합 관리</td><td nowrap>최종 점검</td><td nowrap>완료</td></tr>
-  </tbody>
-</table>
+- 담당자: 성웅
+- 역할: 팀장 / 프로젝트 기획 / 통합 관리 / AI·비전 / DB 구조 개선 / 로봇 연동 검토
+- 완료 여부: 전체 완료
 
-<h3>담당 역할 요약</h3>
+| 날짜 | 작업명 | 파트 | 단계 |
+|---|---|---|---|
+| 2026년 5월 13일 | 협동2 프로젝트 전체 주제 기획 및 시스템 방향 설정 | 팀장/프로젝트 기획 | 기획 |
+| 2026년 5월 13일 | 스마트팩토리형 볼트 검사 자동화 시스템 기획 | 팀장/프로젝트 기획 | 기획 |
+| 2026년 5월 13일 | 팀원별 역할 분담 및 개발 파트 조율 | 팀장/통합 관리 | 역할 분담 |
+| 2026년 5월 13일 | 전체 개발 일정 조율 및 작업 우선순위 정리 | 팀장/일정 관리 | 일정 조율 |
+| 2026년 5월 13일 | 앱/웹/서버/DB/비전/로봇 파트 간 연동 구조 검토 | 팀장/통합 설계 | 구조 검토 |
+| 2026년 5월 13일 | 팀원별 구현 방향 검토 및 개발 피드백 진행 | 팀장/코드 리뷰 | 검토/피드백 |
+| 2026년 5월 13일 | 비전 검사 시스템에서 YOLO 적용 가능성 검토 | AI/비전 | 모델 검토 |
+| 2026년 5월 13일 | Roboflow 기반 데이터셋 구성 및 초기 학습 방향 검토 | AI/비전 | 데이터셋 준비 |
+| 2026년 5월 14일 | Roboflow credit 및 모델 업로드 문제 분석 | AI/비전 | 디버깅 |
+| 2026년 5월 14일 | 로컬 LabelImg 기반 라벨링 환경 구축 방향 정리 | AI/비전 | 라벨링 환경 |
+| 2026년 5월 14일 | LabelImg 실행 오류 및 PyQt float 타입 오류 해결 방향 정리 | AI/비전 | 디버깅 |
+| 2026년 5월 15일 | YOLOv8n 초기 학습 결과 분석 | AI/비전 | 모델 학습 |
+| 2026년 5월 15일 | good/ng 데이터 불균형 문제 분석 | AI/비전 | 데이터 분석 |
+| 2026년 5월 15일 | 추가 good 데이터 반영 및 데이터셋 균형 개선 방향 정리 | AI/비전 | 데이터셋 개선 |
+| 2026년 5월 16일 | YOLOv8n에서 YOLO11x img960으로 모델 개선 방향 검토 | AI/비전 | 모델 개선 |
+| 2026년 5월 16일 | 실제 환경에서 YOLO 오판 문제 분석 | AI/비전 | 실환경 디버깅 |
+| 2026년 5월 16일 | 한 객체에 good/ng 박스가 동시에 뜨는 문제 분석 | AI/비전 | 실환경 디버깅 |
+| 2026년 5월 16일 | agnostic_nms 적용을 통한 중복 클래스 박스 완화 방향 정리 | AI/비전 | 추론 옵션 개선 |
+| 2026년 5월 17일 | detector + classifier 2단계 구조 검토 | AI/비전 | 모델 구조 검토 |
+| 2026년 5월 17일 | good/ng 분류 방식의 한계 판단 및 적용 범위 재정리 | AI/비전 | 기술 의사결정 |
+| 2026년 5월 18일 | 최종 YOLO 사용 목적을 볼트 존재 여부 및 위치 확인 중심으로 조정 | AI/비전 | 적용 방향 확정 |
+| 2026년 5월 18일 | RealSense 기반 실시간 YOLO 모델 로딩 및 동작 로그 확인 | AI/비전 | 실행 테스트 |
+| 2026년 5월 19일 | 팀원 3D 매핑 구현 과정 구조 검토 및 디버깅 조언 | 팀장/3D 매핑 지원 | 구조 검토 |
+| 2026년 5월 19일 | RealSense 기반 3D 작업 공간 생성 과정 확인 및 문제 원인 분석 지원 | 팀장/3D 매핑 지원 | 디버깅 지원 |
+| 2026년 5월 20일 | 볼트 위치 검출 결과가 3D 화면에 반영되는 흐름 검토 | 팀장/비전-3D 연동 지원 | 통합 검토 |
+| 2026년 5월 20일 | 높이 기반 볼트 상태 측정 방식 적용 방향 검토 | 비전/알고리즘 | 검사 로직 검토 |
+| 2026년 5월 20일 | 검사 결과 Firebase Realtime Database 저장 구조 연동 검토 | Firebase/DB | DB 연동 |
+| 2026년 5월 20일 | Firebase 검사 결과와 웹 화면 연동 구조 확인 | 웹/DB 연동 | 통합 테스트 |
+| 2026년 5월 21일 | KJH 웹 화면의 실시간 검사 데이터 기준 검토 | 웹/DB 연동 | 구조 검토 |
+| 2026년 5월 21일 | 실시간 화면은 live_scan 기준으로 처리하도록 방향 정리 | 웹/DB 연동 | 데이터 기준 정리 |
+| 2026년 5월 21일 | 검사 이력 화면은 indexes → sessions 기준으로 조회하도록 방향 정리 | 웹/DB 연동 | 데이터 기준 정리 |
+| 2026년 5월 21일 | defect / defective / ng / failed 상태값을 모두 불량으로 처리하는 조건 정리 | 웹/DB 연동 | 상태값 정규화 |
+| 2026년 5월 21일 | DB 필드를 추가하지 않고 기존 구조를 유지하는 수정 방향 조율 | 팀장/DB 조율 | 코드 수정 방향 |
+| 2026년 5월 21일 | 팀원 KJH 화면 수정 방향 피드백 및 반영 기준 정리 | 팀장/웹 조율 | 피드백 |
+| 2026년 5월 22일 | 법선 벡터 기반 로봇 자세 제어 방향 정리 | 로봇 제어 | 자세 계산 |
+| 2026년 5월 24일 | 로봇 제어와 연동하기 위한 실시간 DB 구조 live_scan 추가 방향 정리 | 로봇/DB 연동 | 실시간 DB |
+| 2026년 5월 24일 | live_scan/workstations 기반 실시간 3D 검사 화면 연동 구조 검토 | 팀장/웹-3D 연동 지원 | 통합 검토 |
+| 2026년 5월 24일 | 팀원 3D 렌더링 화면에서 발생한 표시 문제 확인 및 수정 방향 조언 | 팀장/웹-3D 연동 지원 | 디버깅 지원 |
+| 2026년 5월 25일 | PointCloud 웹 시각화 렉 문제에 대한 원인 분석 및 최적화 방향 조언 | 팀장/3D 매핑 지원 | 성능 개선 조언 |
+| 2026년 5월 25일 | Plotly 기반 3D 렌더링 부하 감소 방향 검토 및 팀원 피드백 | 팀장/웹-3D 연동 지원 | 피드백 |
+| 2026년 5월 26일 | 나사 중심점 검출 정확도 개선 방향 정리 | 비전/3D 매핑 | 알고리즘 개선 검토 |
+| 2026년 5월 26일 | 나사 불량 판단 기준 수정 및 높이 기반 검사 로직 보완 방향 정리 | 비전/알고리즘 | 검사 로직 개선 |
+| 2026년 5월 26일 | 3D 맵에서 나사 영역과 작업대 영역이 구분되도록 후처리 방향 조언 | 팀장/3D 매핑 지원 | 알고리즘 조언 |
+| 2026년 5월 26일 | Firebase DB 구조를 captures 중심에서 session 기반 구조로 재설계 | Firebase/DB | DB 구조 개선 |
+| 2026년 5월 26일 | inspections/{site_id}/sessions/{session_id}/workstations/{workstation_id}/captures 구조 적용 | Firebase/DB | DB 구조 개선 |
+| 2026년 5월 26일 | session_id를 실제 검사 시작 시점 기준으로 생성하도록 수정 | Firebase/DB | 세션 관리 |
+| 2026년 5월 26일 | ensure_session_started 로직 추가 및 세션 누적 관리 구조 정리 | Firebase/DB | 세션 관리 |
+| 2026년 5월 26일 | session_total_captures / session_total_markers / normal_count / defect_count 누적 구조 추가 | Firebase/DB | 통계 관리 |
+| 2026년 5월 26일 | workstation_id 자동 생성 및 작업대별 capture 분리 저장 구조 적용 | Firebase/DB | 작업대 관리 |
+| 2026년 5월 26일 | capture metadata에 session_id / workstation_id / robot_id / camera_id 포함 | Firebase/DB | 메타데이터 개선 |
+| 2026년 5월 26일 | 기존 flat captures 경로 mirror 저장 유지로 구형 GUI 호환성 확보 | Firebase/DB | 하위 호환성 |
+| 2026년 5월 26일 | Firebase Storage 경로를 session/workstation/capture 기준으로 변경 | Firebase Storage | 파일 경로 개선 |
+| 2026년 5월 26일 | indexes/latest 포인터 구조 추가 | Firebase/DB | 조회 최적화 |
+| 2026년 5월 26일 | indexes/capture_lookup 구조 추가 | Firebase/DB | 조회 최적화 |
+| 2026년 5월 26일 | indexes/captures_by_date 구조 추가 | Firebase/DB | 날짜별 조회 |
+| 2026년 5월 26일 | indexes/captures_by_workstation 구조 추가 | Firebase/DB | 작업대별 조회 |
+| 2026년 5월 26일 | indexes/defects_by_status/unresolved 구조 추가 | Firebase/DB | 불량 추적 |
+| 2026년 5월 26일 | sites/latest_session_id 및 latest_capture_id 업데이트 구조 추가 | Firebase/DB | 사이트 상태 관리 |
+| 2026년 5월 26일 | robots/current_session_id / current_workstation_id / current_capture_id 업데이트 구조 추가 | 로봇/DB 연동 | 로봇 상태 연동 |
+| 2026년 5월 26일 | twin_state/current_session 업데이트 구조 추가 | 디지털트윈/DB | 현재 세션 표시 |
+| 2026년 5월 26일 | twin_state/current_inspection 업데이트 구조 추가 | 디지털트윈/DB | 최신 검사 표시 |
+| 2026년 5월 26일 | Firebase DB 연결 및 Storage bucket 연결 상태 확인 | Firebase/DB | 디버깅 |
+| 2026년 5월 26일 | markers None 저장 문제 원인 분석 및 YOLO 감지 결과 0개 케이스 확인 | Firebase/DB | 디버깅 |
+| 2026년 5월 26일 | session 구조 적용 중 SyntaxError 발생 후 Git restore로 정상 버전 복구 | 코드 통합/DB | 디버깅 |
+| 2026년 5월 26일 | py_compile / import 테스트 / 경로 생성 테스트로 DB 코드 정적 검증 | 코드 통합/DB | 검증 |
+| 2026년 5월 26일 | GUI/API/Robot이 session 구조를 우선 조회하고 flat 구조를 fallback으로 사용하도록 방향 정리 | 통합 관리/DB | 호환성 설계 |
+| 2026년 5월 26일 | 협동2 시스템 아키텍처 자료 제작 | 문서화/설계 자료 | 시스템 구조 시각화 |
+| 2026년 5월 26일 | 협동2 전체 동작 흐름 플로우차트 제작 | 문서화/설계 자료 | 프로세스 시각화 |
+| 2026년 5월 26일 | 시스템 아키텍처와 플로우차트의 선 배치, 박스 구조, 흐름 방향 정리 | 문서화/설계 자료 | 자료 보완 |
+| 2026년 5월 26일 | 발표용 공통 구조와 각자 PPT 제작 방향 조율 | 팀장/발표 조율 | 발표 자료 조율 |
+| 2026년 5월 26일 | 팀원별 폴더 구조 CEY / KJH / YJH / YSW 확인 및 통합 기준 정리 | 팀장/GitHub | 협업 관리 |
+| 2026년 5월 26일 | GitHub collaborator main push 권한 및 VS Code push 오류 해결 지원 | 팀장/GitHub | 협업 관리 |
+| 2026년 5월 26일 | 팀원별 구현 파트 충돌 여부 확인 및 수정 방향 피드백 | 팀장/통합 관리 | 코드 리뷰 |
+| 2026년 5월 26일 | 전체 파트 진행 상황 검토 및 최종 통합 방향 조율 | 팀장/통합 관리 | 최종 점검 |
 
-<p>성웅은 협동2 프로젝트에서 팀장 역할을 맡아 전체 프로젝트 기획, 일정 조율, 역할 분담, 파트별 구현 방향 검토 및 피드백을 담당하였다.</p>
+### 담당 역할 요약
 
-<p>직접 담당한 주요 기술 파트는 YOLO 기반 볼트 인식 디버깅, Firebase DB 구조 개선, 로봇/DB 연동 구조 검토, 시스템 아키텍처 및 플로우차트 제작이다.</p>
+성웅은 협동2 프로젝트에서 팀장 역할을 맡아 전체 프로젝트 기획, 일정 조율, 역할 분담, 파트별 구현 방향 검토 및 피드백을 담당하였다.
 
-<p>3D 매핑 파트는 팀원이 주도적으로 구현하였고, 성웅은 구현 과정을 확인하면서 구조 검토, 디버깅 조언, 웹/DB/검사 로직과의 통합 방향 피드백을 수행하였다.</p>
+직접 담당한 주요 기술 파트는 YOLO 기반 볼트 인식 디버깅, Firebase DB 구조 개선, 로봇/DB 연동 구조 검토, 시스템 아키텍처 및 플로우차트 제작이다.
 
-<p>PPT는 팀원별로 각자 제작하되, 발표용 공통 구조와 시스템 흐름 정리는 성웅이 조율하였다.</p>
+3D 매핑 파트는 팀원이 주도적으로 구현하였고, 성웅은 구현 과정을 확인하면서 구조 검토, 디버깅 조언, 웹/DB/검사 로직과의 통합 방향 피드백을 수행하였다.
 
-<p>YOLO는 초기에는 good/ng 분류까지 검토했으나, 실제 환경 오판 문제와 프로젝트 적용 범위를 고려하여 최종적으로는 볼트 존재 여부 및 위치 확인 중심으로 활용하였다.</p>
+PPT는 팀원별로 각자 제작하되, 발표용 공통 구조와 시스템 흐름 정리는 성웅이 조율하였다.
+
+YOLO는 초기에는 good/ng 분류까지 검토했으나, 실제 환경 오판 문제와 프로젝트 적용 범위를 고려하여 최종적으로는 볼트 존재 여부 및 위치 확인 중심으로 활용하였다.
