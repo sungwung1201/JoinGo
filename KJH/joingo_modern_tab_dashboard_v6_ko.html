@@ -618,6 +618,24 @@
       return d.toLocaleString("ko-KR", { month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", second:"2-digit" });
     }
 
+    function normalizeStatusValue(rawStatus) {
+      const value = String(rawStatus ?? "").trim().toLowerCase();
+
+      if (rawStatus === true || ["normal", "ok", "good", "pass", "passed", "resolved"].includes(value)) {
+        return "normal";
+      }
+
+      if (rawStatus === false || ["defect", "defective", "failed", "fail", "ng", "abnormal", "error"].includes(value)) {
+        return "defect";
+      }
+
+      return "defect";
+    }
+
+    function isDefectStatus(status) {
+      return normalizeStatusValue(status) === "defect";
+    }
+
     function showPage(pageName) {
       currentPage = pageName;
       document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === pageName));
@@ -734,10 +752,7 @@
 
     function normalizeScrew(info = {}, idx) {
       const pos = info?.position || info || {};
-      const rawStatus = info?.status;
-      let status = "defect";
-      if (rawStatus === true || rawStatus === "normal" || rawStatus === "OK" || rawStatus === "good") status = "normal";
-      if (rawStatus === false || rawStatus === "defect" || rawStatus === "NG" || rawStatus === "abnormal") status = "defect";
+      const status = normalizeStatusValue(info?.status);
       return {
         ...info,
         status,
@@ -846,7 +861,7 @@
     function renderSummary(data, screws) {
       const values = Object.values(screws || {});
       const total = values.length;
-      const defect = values.filter(v => v.status !== "normal").length;
+      const defect = values.filter(v => isDefectStatus(v.status)).length;
       $("mSection").textContent = data?.section_name || currentSection || "-";
       $("mTotal").textContent = total;
       $("mDefect").textContent = defect;
