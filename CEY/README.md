@@ -1,162 +1,73 @@
-# 🛠️ 로봇 및 비전 기반 나사 체결 자동화 프로젝트 개발 일지
-(May 21 ~ May 24)
+<h2>로봇 및 비전 기반 나사 체결 자동화 시스템 타임라인</h2>
 
-## 📌 개요
-본 문서는 Doosan M0609 로봇을 활용한 나사 체결 및 불량 검사 자동화 시스템의 개발 과정을 기록합니다. 로봇 제어(robot_ppv), 음성 명령 처리(voice_ppv), 그리고 DB(Firebase) 및 비전 검사 시스템과의 연동을 중심으로 진행되었습니다.
+<table>
+  <thead>
+    <tr>
+      <th nowrap>작업명</th>
+      <th nowrap>날짜</th>
+      <th nowrap>담당자</th>
+      <th nowrap>파트</th>
+      <th nowrap>단계</th>
+      <th nowrap>완료 여부</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td nowrap>기존 Pick&Place 코드(cobot2_ws) 기반으로 신규 프로젝트 패키지 구조 설계</td><td nowrap>2026년 5월 14일</td><td nowrap>조의연</td><td nowrap>프로젝트 환경 구축</td><td nowrap>패키지 설계</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>wakeup_word.py 음성 인식 웨이크업 워드 모듈 작성 (OpenWakeWord 기반)</td><td nowrap>2026년 5월 14일</td><td nowrap>조의연</td><td nowrap>음성 제어</td><td nowrap>기반 모듈 구현</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>기존 robot_control_before.py 음성 → YOLO → Pick&Place 파이프라인 동작 확인</td><td nowrap>2026년 5월 14일</td><td nowrap>조의연</td><td nowrap>로봇/음성 연동</td><td nowrap>동작 테스트</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>STT 모듈(stt.py) 구현: Whisper API 기반 음성→텍스트 변환</td><td nowrap>2026년 5월 15일</td><td nowrap>조의연</td><td nowrap>음성 제어</td><td nowrap>STT 구현</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>get_keyword_f.py: LLM(GPT-4o) 프롬프트 기반 음성→과일/목적지 추출 로직 구현</td><td nowrap>2026년 5월 15일</td><td nowrap>조의연</td><td nowrap>음성 제어</td><td nowrap>LLM 키워드 추출</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>마이크 오디오 설정 및 MicController 파라미터 튜닝 (chunk/rate/device)</td><td nowrap>2026년 5월 15일</td><td nowrap>조의연</td><td nowrap>음성 제어</td><td nowrap>하드웨어 세팅</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_ppv / voice_ppv ROS 2 패키지 신규 생성 (setup.py, __init__.py)</td><td nowrap>2026년 5월 16일</td><td nowrap>조의연</td><td nowrap>프로젝트 환경 구축</td><td nowrap>패키지 초기화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_control_before.py를 robot_ppv 패키지로 이관 및 패키지 경로 수정</td><td nowrap>2026년 5월 16일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>코드 마이그레이션</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>voice_ppv에 get_keyword.py 서비스 노드 통합 및 음성→YOLO 연동 테스트</td><td nowrap>2026년 5월 16일</td><td nowrap>조의연</td><td nowrap>음성/비전 연동</td><td nowrap>연동 테스트</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_control_pose.py: 음성 목적지(pose1/2/3) 기반 Drop 위치 분기 로직 구현</td><td nowrap>2026년 5월 17일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>음성 목적지 분기</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>서비스 Request 스레드 간섭 버그 해결 (멤버변수→로컬변수 독립 Request 생성)</td><td nowrap>2026년 5월 17일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_control_test.py: YOLO 좌표 기반 나사 터치 테스트(touch_target) 프로토타입</td><td nowrap>2026년 5월 18일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>터치 테스트</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>카메라→로봇 베이스 좌표 변환(transform_to_base) Hand-Eye 캘리브레이션 연동</td><td nowrap>2026년 5월 18일</td><td nowrap>조의연</td><td nowrap>로봇/비전 연동</td><td nowrap>좌표 변환</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_spin.py: DRL 기반 돔 스캔 궤적(Dome Scan) 경로 생성 및 순응제어 적용</td><td nowrap>2026년 5월 19일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>스캔 모션 설계</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>법선벡터 블렌딩(75% 하방 + 25% 표면법선) 기반 스캔 자세 연산 알고리즘 구현</td><td nowrap>2026년 5월 19일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>자세 연산</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_control_main.py: 음성 명령 → YOLO → Pick&Place 통합 메인 노드 정리</td><td nowrap>2026년 5월 19일</td><td nowrap>조의연</td><td nowrap>로봇/음성 연동</td><td nowrap>메인 노드 통합</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_control_test2.py / test2_1.py: 음성 제어 기반 이동 파이프라인 디버깅</td><td nowrap>2026년 5월 19일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>디버깅</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_control_test3.py / test4.py: YOLO 좌표 인덱싱 및 선택적 이동 분기 로직</td><td nowrap>2026년 5월 20일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>좌표 체계화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_driver_check.py: 나사 위치 이동 후 토크 검출 초기 프로토타입 작성</td><td nowrap>2026년 5월 20일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>검사 로직 초안</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>robot_driver_check_test.py ~ test3_1.py: 토크 모니터링 검사 로직 반복 테스트 및 개선</td><td nowrap>2026년 5월 20일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>검사 로직 테스트</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>get_keyword.py (voice_ppv): 나사 검사 전용 음성 명령 인터페이스로 확장 시작</td><td nowrap>2026년 5월 20일</td><td nowrap>조의연</td><td nowrap>음성 제어</td><td nowrap>도메인 전환</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>LLM 기반 음성 명령 파싱 및 로봇 전달 ('전체 검사해')</td><td nowrap>2026년 5월 21일</td><td nowrap>조의연</td><td nowrap>음성/로봇 연동</td><td nowrap>음성 제어</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>특정 번호가 부여된 나사 좌표로 이동하는 기능 구현</td><td nowrap>2026년 5월 21일</td><td nowrap>조의연</td><td nowrap>음성/로봇 연동</td><td nowrap>모션 제어</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>YOLO 비전 획득 좌표 리스트 인덱싱 및 분기 로직(전체 조사/위치 이동)</td><td nowrap>2026년 5월 21일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>좌표 체계화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>토크값 기반 불량 판별 기준 확립 (기준 이상=정상 조건 반전)</td><td nowrap>2026년 5월 21일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>검사 로직</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>외부 토크 센서(J6) 실시간 피드백 루프 구현 (`get_external_torque`)</td><td nowrap>2026년 5월 22일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>동적 토크 제어</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>단순 터치 방식에서 그리퍼 회전 체결(Grip & Tighten) 시스템으로 전면 개편</td><td nowrap>2026년 5월 22일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>체결 아키텍처</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>목표 토크 도달 시 즉각 회전 정지 및 순응 제어(Compliance Control) 적용</td><td nowrap>2026년 5월 22일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>안전 모션</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>비전 검출 오차 오프셋 보정 및 실패 시 다시 시도하는 Re-gripping 복구 로직</td><td nowrap>2026년 5월 22일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>예외 처리</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>Firebase DB 내 워크스페이스 나사 3D 좌표 유닛 변환 연동</td><td nowrap>2026년 5월 22일</td><td nowrap>조의연</td><td nowrap>로봇/DB 연동</td><td nowrap>데이터 수신</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>5-Point 다중 관점 비전 스캔 자동화 모션 및 좌표 동기화</td><td nowrap>2026년 5월 22일</td><td nowrap>조의연</td><td nowrap>로봇/비전 연동</td><td nowrap>스캔 시스템</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>워크스페이스 탐색 모션 중 자율 비전 검사 서비스(Trigger) 완벽 연동</td><td nowrap>2026년 5월 23일</td><td nowrap>조의연</td><td nowrap>로봇/비전 연동</td><td nowrap>검사 루틴 통합</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>체결 시 그리퍼 미끄러짐 방지를 위한 '동적 Z축 하강 보상' 알고리즘 고안</td><td nowrap>2026년 5월 23일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>체결 신뢰성 강화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>3차원 좌표 기반 워크스페이스 평면 법선 벡터(Normal Vector) 연산</td><td nowrap>2026년 5월 23일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>수학적 3D 연산</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>법선 벡터 연산에 따른 워크스페이스별 동적 3D 자세 제어(Approach Angle) 적용</td><td nowrap>2026년 5월 23일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>동적 자세 제어</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>realtime_3d_mapper_multi 노드 연동 (실시간 입체 환경 매핑 파이프라인 통합)</td><td nowrap>2026년 5월 24일</td><td nowrap>조의연</td><td nowrap>시스템 통합</td><td nowrap>3D 연동</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>DB 라이브 스캔 좌표 파이프라인(`live_scan/workstations`) 마이그레이션 적용</td><td nowrap>2026년 5월 24일</td><td nowrap>조의연</td><td nowrap>로봇/DB 연동</td><td nowrap>파이프라인 재설계</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>결함(`defective`) 나사 선별 필터링을 통한 지능적 모션 분기 최적화</td><td nowrap>2026년 5월 24일</td><td nowrap>조의연</td><td nowrap>시스템 통합</td><td nowrap>상태 기반 작업</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>로봇 및 환경 초기화를 위한 'Workspace 준비' 자동화 시퀀스 통합</td><td nowrap>2026년 5월 24일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>시작 준비</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>체결 성공 시 DB 상태값을 `normal`로 변경하는 실시간 양방향 통신망 구축</td><td nowrap>2026년 5월 24일</td><td nowrap>조의연</td><td nowrap>로봇/DB 연동</td><td nowrap>피드백 루프</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>SVD(특이값 분해) 연산 기반의 동적 축(Axis-based) 3D 좌표 오프셋 도입</td><td nowrap>2026년 5월 26일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>범용 좌표 연산</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>하드코딩을 탈피한 Workspace-agnostic 범용 로봇 제어 아키텍처 달성</td><td nowrap>2026년 5월 26일</td><td nowrap>조의연</td><td nowrap>시스템 통합</td><td nowrap>시스템 고도화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>자세/중력 변화에 따른 실세계 토크 센서 영점(Baseline) 노이즈 확인 및 대응</td><td nowrap>2026년 5월 26일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>디버깅 및 보정</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>중력 편차를 극복하는 체결 판별 최소 토크 절댓값(0.5 N·m) 표준화 정립</td><td nowrap>2026년 5월 26일</td><td nowrap>조의연</td><td nowrap>로봇 제어</td><td nowrap>센서 데이터 정규화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>defective / defect 상태에 대한 엄격한 타겟 필터링 파이프라인 고도화</td><td nowrap>2026년 5월 26일</td><td nowrap>조의연</td><td nowrap>시스템 통합</td><td nowrap>로직 최적화</td><td nowrap>완료</td></tr>
+  </tbody>
+</table>
 
----
+<h3>담당 역할 요약</h3>
 
-## 📅 5월 21일: 음성 제어 기반 로봇 명령 및 초기 토크 모니터링 도입
+<p>조의연은 협동2 프로젝트에서 '로봇 제어 및 비전/DB 통합(robot_ppv)' 파트와 'LLM 음성 제어(voice_ppv)' 파트를 전담하여, Doosan M0609 로봇을 활용한 나사 체결 자동화 시스템의 전체 모션 제어 및 외부 연동 아키텍처를 설계하고 구현하였다.</p>
 
-### 1. `voice_ppv` (LLM 음성 제어 패키지)
-**주요 개발 내용 (`get_keyword_screw.py`):**
-- **LLM 기반 음성 명령 파싱 및 로봇 명령 전달 로직 구현**
-  - `'전체 검사해'`: 전체 나사의 상태 및 체결 유무를 검사하는 시퀀스 시작 명령을 `robot_control` 노드로 전달.
-  - `'n번 위치로 이동해'`: 특정 번호가 부여된 나사 좌표로 로봇을 정확히 이동시키는 명령 구현.
+<p>14~16일에는 기존 Pick&Place 레거시 코드(cobot2_ws)를 분석하여 robot_ppv / voice_ppv라는 신규 ROS 2 패키지 구조를 설계·생성하고, OpenWakeWord 기반 웨이크업 워드 모듈, Whisper API 기반 STT 모듈, 그리고 GPT-4o LLM을 활용한 음성 키워드 추출 파이프라인을 구축하였다.</p>
 
-### 2. `robot_ppv` (로봇 제어 패키지)
-**주요 개발 내용:**
-- **비전 좌표 체계화 (`robot_control_test4.py`)**: YOLO에서 획득한 나사 좌표 데이터에 순차적으로 번호를 부여하여 관리하는 알고리즘 작성 (전체 조사 및 특정 번호 위치 이동 기능의 기반 마련).
-- **토크 모니터링 기반 검사 로직 초안 작성 (`robot_driver_chech_test3_4.py` ~ `test3_7`)**:
-  - 초기에는 단순 좌표 이동(touch_target) 위주였으나, 나사 불량 검사를 위해 실시간 토크값(Torque) 모니터링 기능 추가.
-  - 불량 판정 기준 로직 수정: 초기 "기준 토크 이상이면 불량"에서 "기준 토크 이상이면 정상(체결 완료)"으로 논리 조건 반전 및 정상화.
+<p>17~18일에는 음성 인식으로 받은 목적지(pose1/2/3)에 따라 로봇이 물체를 놓을 위치를 동적으로 분기하는 robot_control_pose.py를 구현하고, YOLO 좌표를 Hand-Eye 캘리브레이션을 통해 로봇 베이스 좌표로 변환하여 나사 정중앙을 정확히 터치(touch_target)하는 프로토타입을 완성했다.</p>
 
----
+<p>19~20일에는 DRL 기반 돔형 스캔 궤적(robot_spin.py)을 수학적으로 설계하고, 토크 모니터링을 통한 나사 불량 검사 로직의 초기 프로토타입(robot_driver_check 시리즈)을 반복 작성하며 체결 검사 시스템의 기초를 다졌다.</p>
 
-## 📅 5월 22일: 동적 토크 제어 기반 나사 체결 시퀀스 및 다중 관점 비전 스캔 자동화
-
-### 1. `robot_ppv` (나사 체결 자동화 및 실시간 제어 알고리즘 구현)
-- **터치 기반 검사에서 실제 체결(Grip & Tighten) 시스템으로의 아키텍처 전환**
-- **동적 토크 제어 체결 알고리즘 구현**:
-  - 기존 툴 포스(`get_tool_force`) 대신 **J6 축의 외부 토크 센서 데이터(`get_external_torque`)**를 직접 활용하여 더욱 정밀한 회전 저항 감지 로직 구현.
-  - `amovej` (비동기 관절 회전) 명령과 실시간 토크 피드백 루프를 결합하여, 나사 조임 중 **목표 토크 값 도달 시 즉각적으로 회전을 정지**하는 안전하고 정확한 모션 제어 로직 완성.
-  - 터미널을 통한 실시간 Non-blocking 토크 모니터링 피드백 UI 추가 및 순응 제어(Compliance Control) 적용.
-- **오차 보정 및 예외 처리 (Error Recovery)**:
-  - 비전 검출 시스템의 오차를 보상하기 위한 좌표 오프셋 적용.
-  - 초기 회전 시 목표 토크에 도달하지 못할 경우(헛돌거나 어긋남), 다시 그립(Re-gripping)을 수행하는 사이클 기반의 에러 복구 로직 구현.
-
-### 2. 비전 및 DB 연동 시스템 구축
-- **Firebase DB 연동**: Firebase에서 워크스페이스 내 나사 좌표 데이터를 읽어오고 로봇 좌표계에 맞게 단위 변환(Unit Conversion) 처리.
-- **다중 관점(Multi-Point) 환경 스캔 시퀀스 도입**:
-  - 5개의 정의된 관측 위치(`VIEWPOINTS`)로 로봇 관절을 이동시키며 환경을 스캔하는 자동화 시퀀스 구현.
-  - 로봇 이동 후 카메라 안정화 시간을 대기하고, `/vision_inspect` 서비스(Trigger)를 호출하여 실시간 검사 수행 후 좌표를 동기화.
-
----
-
-## 📅 5월 23일: 로봇 자세 제어 최적화 및 동적 Z축 보상 알고리즘 구현
-
-### `robot_ppv` (자세 제어 및 체결 신뢰성 고도화)
-- **비전 스캔과 모션의 완벽한 통합**: 워크스페이스(ws) 탐색 모션 중 `/vision_inspect` 서비스 콜을 완벽히 연동하여 자율 검사 루틴 확립.
-- **동적 Z축 하강(Compensation) 알고리즘 적용 (핵심 시스템 아키텍처)**:
-  - 나사를 조일 때 발생하는 깊이 변화로 인해 그리퍼가 미끄러지는(Slipping) 현상을 방지하기 위한 핵심 제어 로직.
-  - 체결 사이클마다 툴의 **Z축 위치를 1.5mm씩 점진적으로 하강**시키는 알고리즘을 추가하여 나사와의 지속적인 물리적 접촉 유지 및 체결 신뢰성 대폭 향상.
-- **법선 벡터 기반 자세 제어 시스템**:
-  - 데이터베이스의 나사 좌표 및 3차원 회전값(Orientation) 정보를 이용하여, 각 워크스페이스와 나사의 평면에 수직인 축(Normal Vector)을 계산.
-  - 이를 바탕으로 워크스페이스별 로봇의 접근 자세(Approach Angle)를 동적으로 결정하여 체결의 정확도 증대.
-
----
-
-## 📅 5월 24일: 시스템 통합 및 데이터 파이프라인 정교화
-
-### `robot_ppv` & 전체 시스템 연동
-- **`realtime_3d_mapper_multi` 노드 연동**: 실시간 3D 매핑 모듈과의 통합에 성공하여 보다 입체적인 환경 인식 기반 마련.
-- **Firebase 데이터 파이프라인 대규모 개편**:
-  - 기존 `/linestatus` 경로에서 확장성을 고려한 새로운 `/live_scan/workstations` 구조로 DB 트리 마이그레이션.
-  - DB 스키마에 맞춰 `screw_XX` 형태의 키값을 파싱하고, 워크스페이스 이름과 워크스테이션 ID를 동적으로 변환하는 로직 구현.
-- **상태 기반 작업 필터링 (Status-based Filtering)**:
-  - DB에서 상태가 `'defective'` 또는 `'defect'`인 나사만 선별적으로 필터링하여 로봇이 보수 작업(체결)을 수행하도록 지능화.
-- **자동화 시퀀스 통합 마무리**:
-  - 작업 시작 전 환경을 세팅하는 'Workspace 준비' 커맨드 통합.
-  - 나사 체결 작업을 성공적으로 완료하면 **Firebase DB의 상태(Status)를 'normal'로 실시간 양방향 업데이트**하여 전체 파이프라인 완성.
-
----
-
-## 📅 5월 26일: 동적 좌표 오프셋 적용 및 중력 보상 토크 임계값 표준화
-
-### `robot_ppv` (모션 제어 및 좌표 변환 최적화)
-**주요 개발 내용 (`robot_control_test_fin_9_2.py` 통합):**
-- **SVD(특이값 분해) 기반의 동적 자세 계산 및 좌표 오프셋 적용**:
-  - 기존 하드코딩된 워크스페이스별 좌표 오프셋의 한계를 극복하기 위해, 로봇의 포즈(Pose) 벡터를 활용한 동적 축 기반(Axis-based) 오프셋 시스템(예: `-y`, `-z` 방향 보상)을 도입.
-  - 이로써 워크스페이스의 물리적 위치나 방향에 구애받지 않고(Workspace-agnostic) 범용적으로 동작하는 일관된 로봇 제어가 가능해짐.
-  - 추후 모듈화를 위해 SVD 기반 좌표 변환 및 자세 계산 로직에 대한 플로우 차트(Flow chart) 설계 기반 마련.
-- **토크 임계값 표준화 (중력 보상)**:
-  - 로봇의 자세 및 중력 방향(Gravity Orientations) 변화에 따라 토크 센서의 값이 달라지는 문제 해결.
-  - 체결 및 검사를 위한 최소 토크 임계값을 **절댓값 0.5 N·m**으로 표준화하여, 다양한 각도와 위치에서도 신뢰할 수 있는 불량 검출 및 체결 성능 확보.
-- **Firebase 필터링 최적화**: 상태 기반 로직을 더욱 엄격하게 다듬어 'defective' 또는 'defect' 상태인 나사만 정확히 타겟팅하도록 파이프라인 고도화(`robot_control_test_fin_7_2.py` 개선 사항 반영).
-
----
-
-## 📂 로봇 제어 스크립트 버전 관리 히스토리 (`robot_ppv`)
-
-프로젝트 진행 과정에서 로봇 제어 및 불량 검출 로직의 발전에 따라 파일이 단계별로 분리되고 진화했습니다. 주요 버전의 변경 사유와 흐름은 다음과 같습니다.
-
-### 1. `robot_driver_check` 시리즈 (토크/검사 로직의 태동)
-단순한 이동에서 토크 기반의 불량 검출 로직을 처음 설계하고 테스트하던 과정입니다.
-- **`~ test.py`, `test2.py` (5.20)**: 초기 비전 좌표 수신 및 단순 터치 타겟 모션 테스트.
-- **`~ test3_1.py` ~ `test3_7.py` (5.21 ~ 5.22)**: 
-  - **변경 이유**: 나사 불량 판별의 필요성 대두.
-  - **주요 내용**: 순응 제어(Compliance Control) 없이 단순 토크를 모니터링. 초기엔 "기준 토크 이상이면 불량"으로 판단하다가, 실제 체결의 물리적 특성을 깨닫고 논리 조건을 반전("기준 토크 이상이면 정상")하여 로직의 기틀을 잡음.
-- **`~ test3_8.py` (5.22)**: J6 축의 외부 토크(`get_external_torque`)를 실시간으로 모니터링하는 피드백 루프 실험 실패 : 드라이버의 연성과, - 드라이버의 한계에 의해 나사구멍에 잘 들어가도 채결 및 검사에는 부적합하다 판단.
-
-### 2. `robot_control` 시리즈 (YOLO 연동 및 좌표 제어)
-비전 데이터(YOLO)를 본격적으로 로봇의 모션과 결합하던 단계입니다.
-- **`~ test3.py`, `test4.py` (5.20)**:
-  - **변경 이유**: 비전(YOLO) 좌표의 리스트화 및 선택적 이동 필요.
-  - **주요 내용**: 획득한 좌표에 순차적으로 번호를 부여하고, '전체 조사' 혹은 '특정 번호 이동'을 수행할 수 있는 선택적 분기 로직 구현.
-- **`~ test5.py` ~ `test5_4_2.py` (5.22 ~ 5.23)**:
-  - **변경 이유**: 단순 터치 검사를 넘어 실제 체결(Grip & Tighten) 도입 및 Firebase DB 연동 시작.
-  - **주요 내용**: Firebase에서 3D 좌표를 받아오고, 터치 방식이 아닌 그리퍼를 이용한 회전 체결 로직을 기존 `test4`에 통합하기 시작.
-
-### 3. `robot_control_test_fin` 시리즈 (시스템 통합 및 알고리즘 고도화)
-모든 컴포넌트(DB, 비전, 다중 관점, 토크 제어, Z축 보상)가 하나의 파일로 통합되며 완성되어 간 단계입니다.
-- **`~ fin_1.py` ~ `fin_4.py` (5.23)**:
-  - **변경 이유**: 나사 미끄러짐 방지 및 로봇 접근 자세의 동적 변경 필요.
-  - **주요 내용**: Z축 1.5mm 동적 하강 보상 알고리즘과 법선 벡터 기반의 워크스페이스별 3D 자세 제어(Approach Angle) 기능 병합. 5-포인트 다중 비전 스캔 시퀀스 완성.
-- **`~ fin_5.py` ~ `fin_6.py` (5.24)**:
-  - **변경 이유**: 상태 기반 필터링 및 양방향 DB 통신 필요.
-  - **주요 내용**: DB의 `live_scan/workstations` 경로 변경 적용, 'defective' 나사 필터링, 체결 성공 후 'normal' 상태 DB 실시간 반영 로직 추가.
-- **`~ fin_7.py` ~ `fin_9_2_1.py` (5.26)**:
-  - **변경 이유**: 워크스페이스 위치에 구애받지 않는 범용적 좌표 제어(하드코딩 탈피) 및 중력 방향에 따른 토크 편차 해결.
-  - **주요 내용**: SVD 기반의 동적 축(Axis-based) 오프셋 계산 도입. 체결 판별 최소 토크를 0.5 N·m(절댓값)로 표준화하여 극한의 신뢰성 및 범용성(Workspace-agnostic) 확보.
-
----
-
-## 💡 개발자 기여도 및 성장 과정 (Contributions & Growth)
-
-협업하는 팀원들이 이해할 수 있는 주요 발전 사항과 아키텍처 기여 내용은 다음과 같습니다.
-
-1. **시스템 아키텍처 및 파이프라인 설계 능력 향상**
-   - 단순한 하드코딩 기반의 위치 제어에서 벗어나, **`DB(Firebase) 데이터 수신 ➔ 비전/매핑 데이터 연동(YOLO, 3D Mapper) ➔ 상태 기반 타겟 필터링 ➔ 동적 모션 및 제어`**로 이어지는 유연하고 체계적인 통합 시스템 아키텍처를 직접 구축하였습니다.
-   - DB 경로가 변경되었을 때 유연하게 파싱 로직을 업데이트하여 팀원들(비전/웹 파트)이 제공하는 데이터를 로봇이 즉각 소비할 수 있도록 파이프라인을 안정화했습니다.
-
-2. **센서 데이터 기반의 동적 피드백 제어 (알고리즘 고도화)**
-   - 단순 위치 제어를 뛰어넘어 **J6 축의 외부 토크 센서(`get_external_torque`)**와 비동기 이동 커맨드(`amovej`)를 결합한 **실시간 피드백 루프 알고리즘**을 개발했습니다. 이로 인해 로봇이 나사가 꽉 조여진 시점을 스스로 인지하고 멈추는 지능적인 힘 제어(Force Control)가 가능해졌습니다.
-
-3. **로봇 공학적 문제 해결 능력 및 예외 처리(Robustness) 강화**
-   - 물리적 마찰과 깊이 변화로 인해 그리퍼가 나사에서 이탈하는 문제를 해결하기 위해, 체결 시 1.5mm씩 파고드는 **'동적 Z축 하강 보상 알고리즘'**을 독자적으로 고안하여 체결 성공률을 획기적으로 높였습니다.
-   - 비전 검출 좌표의 오차를 극복하기 위한 좌표 오프셋 적용 및 체결 실패 시 다시 시도하는(Re-gripping) 에러 복구 루틴을 도입하여 시스템의 신뢰성과 강건성을 입증했습니다.
-
-4. **양방향 통신 및 완전 자동화 루틴 확립**
-   - 단순히 명령을 받는 것에 그치지 않고, 체결이 성공하면 DB의 상태를 'normal'로 변경해주는 피드백 구조를 완성하여 팀 차원의 전체 시스템 루틴이 끊김 없이 돌아가게 하는 결정적인 역할을 수행했습니다.
-
----
-
-## 🎯 프로젝트 회고 및 핵심 역량 (Lessons Learned & Key Takeaways)
-
-본 섹션은 향후 포트폴리오 활용 및 오랜 시간이 지난 후에도 프로젝트를 통해 얻은 기술적 인사이트와 성장을 복기하기 위해 작성되었습니다.
-
-### 1. 하드웨어의 물리적 한계 인식 및 소프트웨어적 극복 (Hardware-Software Co-design)
-- **문제 인식**: 초기 체결 테스트(`test3_8.py`)에서 일자(-) 드라이버의 연성(휘어짐) 및 툴 자체의 한계로 인해 나사 구멍에 진입하더라도 실제 체결이나 정밀한 검사를 수행하기에는 물리적으로 부적합하다는 사실을 발견했습니다. 또한 나사가 조여지며 깊이가 변할 때 그리퍼가 튕겨나가는(Slipping) 마찰 현상이 발생했습니다.
-- **배움과 극복**: 하드웨어의 결함을 단순히 하드웨어 교체로만 덮으려 하지 않고, 로봇 제어 알고리즘 단에서 나사를 조일 때마다 1.5mm씩 툴을 점진적으로 하강시키는 **'동적 Z축 하강 보상'** 로직을 고안했습니다. 이를 통해 하드웨어와 물리적 환경의 제약을 소프트웨어적으로 극복해 내는 **강건한(Robust) 모션 제어 설계 능력**을 길렀습니다.
-
-### 2. 수학적 모델링의 실물 로봇 제어 적용 (Math to Motion)
-- **배움**: 비전 시스템이 제공하는 3차원 공간 데이터를 로봇이 완벽하게 이해하고 움직일 수 있도록 변환하는 과정에서 공간 지각 및 선형대수학 지식의 실무 적용 능력이 향상되었습니다.
-- **적용 사례**: 데이터베이스의 자세(Orientation) 정보를 활용해 워크스페이스 평면의 수직 법선 벡터(Normal Vector)를 도출해 냈습니다. 나아가 SVD(특이값 분해) 기반의 연산을 통해 로봇의 물리적 위치나 중력 방향에 구애받지 않고 동작하는 **동적 축 기반 오프셋 제어(Workspace-agnostic Control)**를 완수함으로써, 추상적인 수학 개념을 실물 로봇 제어 코드로 훌륭하게 이식해 냈습니다.
-
-### 3. 실세계 환경을 고려한 노이즈 핸들링 및 센서 데이터 정규화
-- **배움**: 시뮬레이션과 달리, 실제 환경에서는 로봇의 자세나 중력 방향에 따라 토크 센서(`get_external_torque`)의 기준값(Baseline)이 크게 요동친다는 '실세계의 물리적 노이즈'를 경험했습니다.
-- **적용 사례**: 이를 해결하기 위해 토크 임계값을 단순히 특정 수치로 고정하지 않고 **절댓값(0.5 N·m) 기반의 중력 보상 표준화 로직**을 도입했습니다. 어떠한 각도와 환경에서도 신뢰할 수 있는 센서 데이터를 추출하고 노이즈를 필터링하는 데이터 정규화 역량을 얻었습니다.
-
-### 4. 다학제간 이기종 시스템 아키텍처 설계 및 통합 (System Integration)
-- **배움**: 현대의 로봇 공학은 단순히 모터만 구동하는 것이 아님을 직접 체험했습니다. LLM 기반의 음성 AI(`voice_ppv`), 실시간 3D 매핑 및 비전 모듈(`realtime_3d_mapper`), 그리고 클라우드 데이터베이스(`Firebase`)라는 전혀 다른 도메인의 기술들을 하나의 유기적인 파이프라인으로 묶어냈습니다.
-- **적용 사례**: 데이터 파이프라인이 변경될 때 즉각적으로 파싱 로직을 업데이트하고, 검사가 끝난 뒤 로봇이 주도적으로 DB의 상태(Status)를 업데이트하는 **양방향 통신망**을 구축했습니다. 이를 통해 복잡한 다학제간(Multi-disciplinary) 프로젝트에서 병목을 해결하고 데이터 흐름을 주도하는 **시스템 아키텍트(System Architect)로서의 역량**을 성공적으로 증명했습니다.
+<p>21일 이후에는 그리퍼 직접 파지 체결, 동적 Z축 보상, SVD 좌표 변환, Firebase 양방향 통신 등 핵심 알고리즘과 시스템 통합을 주도하였다. 버전별 상세한 디버깅 이력과 프로젝트 회고는 <a href="DEBUGGING.md">DEBUGGING.md</a> 파일에서 확인할 수 있다.</p>
