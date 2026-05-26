@@ -68,17 +68,3 @@
 | 팀원별 폴더 구조 CEY / KJH / YJH / YSW 확인 및 통합 기준 정리 | 2026년 5월 26일 | 성웅 | 팀장/GitHub | 협업 관리 | 완료 |
 | GitHub collaborator main push 권한 및 VS Code push 오류 해결 지원 | 2026년 5월 26일 | 성웅 | 팀장/GitHub | 협업 관리 | 완료 |
 | 팀원별 구현 파트 충돌 여부 확인 및 수정 방향 피드백 | 2026년 5월 26일 | 성웅 | 팀장/통합 관리 | 코드 리뷰 | 완료 |
-핵심 디버깅 요약
-구분	문제 상황	원인	해결/결정
-YOLO 데이터셋	Roboflow 모델 업로드 및 credit 문제	Roboflow version/model upload 제약 및 credit 부족	로컬 LabelImg + Ultralytics 학습 방식으로 전환
-YOLO 라벨링	LabelImg 실행 중 float 타입 오류 발생	PyQt 함수가 int를 요구하는데 float 입력	LabelImg 내부 코드 int 변환 방식으로 패치
-YOLO 분류	good/ng 데이터 불균형 발생	good 데이터가 ng보다 크게 부족	good 데이터 추가 및 데이터셋 균형 개선
-YOLO 실환경	validation 성능은 좋지만 실제 환경에서 오판 발생	조명, 각도, 거리, 반사 차이	hardcase 개념 검토 및 실제 환경 데이터 추가 방향 정리
-YOLO 최종 결정	good/ng 구분 정확도 한계 발생	체결 간격 차이가 너무 미세함	최종 적용은 good/ng 분류보다 볼트 존재 여부와 위치 확인 중심으로 정리
-DB 저장	기존 captures 구조로는 검사 흐름 관리가 어려움	session/workstation 개념 부족	session → workstation → capture → marker 구조로 변경
-DB 조회	최신 검사, 날짜별 검사, 작업대별 검사 조회가 불편함	Firebase에서 복잡한 조건 검색이 어려움	indexes/latest, capture_lookup, captures_by_date, captures_by_workstation 추가
-DB 호환성	새 구조 적용 시 기존 GUI/API가 깨질 가능성	기존 코드는 flat captures 기준	session 구조 저장 + flat captures mirror 저장 유지
-DB 디버깅	markers가 None으로 저장됨	DB 문제가 아니라 YOLO 감지 결과가 0개	실제 감지 결과가 있을 때 screw marker 생성 확인
-코드 통합	session 구조 적용 중 SyntaxError 발생	긴 코드 일괄 수정 과정에서 파일 깨짐	Git restore 후 py_compile, import 테스트, 경로 테스트로 재검증
-웹 연동	defect/defective/ng/failed 상태값 혼재	팀원별 상태값 표현이 다름	화면에서는 모두 불량으로 정규화
-협업	팀원 push 오류 발생	원격 main과 로컬 main 불일치 또는 pull 누락	VS Code 기준 Commit → Pull → Push 흐름 안내
