@@ -86,6 +86,8 @@
     <tr><td nowrap>GitHub collaborator main push 권한 및 VS Code push 오류 해결 지원</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/GitHub</td><td nowrap>협업 관리</td><td nowrap>완료</td></tr>
     <tr><td nowrap>팀원별 구현 파트 충돌 여부 확인 및 수정 방향 피드백</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/통합 관리</td><td nowrap>코드 리뷰</td><td nowrap>완료</td></tr>
     <tr><td nowrap>전체 파트 진행 상황 검토 및 최종 통합 방향 조율</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/통합 관리</td><td nowrap>최종 점검</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>DATABASE_STRUCTURE.md 및 API_USAGE.md 문서화 방향 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>문서화/DB</td><td nowrap>문서화</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>external_exports 및 legacy fallback 구조 검토</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>확장 구조 검토</td><td nowrap>완료</td></tr>
   </tbody>
 </table>
 
