@@ -58,7 +58,6 @@
 | 2026년 5월 24일 | `realtime_3d_mapper_multi_10_03_02.py` | `live_scan` 초기화 로직 개선 — 세션 시작 시 이전 작업 데이터 자동 삭제. DB 초기화 안정화 | DB 초기화 |
 | 2026년 5월 24일 | `realtime_3d_mapper_multi_10_03_03.py` | **멀티 카메라 토픽 콜백 리팩토링** — `topic` 파라미터 추가로 카메라별 데이터 분리 관리. **세션 리셋 서비스 추가** (`/start_new_session`). 새로운 검사 세션 시작 기능 | 멀티 카메라 |
 | 2026년 5월 24일 | `realtime_3d_mapper_multi_10_03_04__.py` | multi_10_03_03과 동일 구조. 백업/안정화 버전 | 백업 |
-| 2026년 5월 24일 | `realtime_3d_mapper_multi_10_04.py` | **나사 중심점 알고리즘 변경** — `get_robust_screw_center` → `get_highest_point_in_bbox`로 교체. 바운딩 박스 내 가장 높은(가까운) 3D 포인트를 나사 중심으로 사용. 단순화된 중심점 로직 | 중심점 단순화 |
 
 ---
 
