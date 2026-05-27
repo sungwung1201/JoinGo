@@ -774,8 +774,9 @@ class RobotController(Node):
 
                 if passed:
                     self.get_logger().info(
-                        f"[검사] 나사 '{marker_key}' 토크 정상 (status 유지: normal)"
+                        f"[검사] 나사 '{marker_key}' 토크 정상 → DB status = normal"
                     )
+                    self.update_screw_status_to_normal(self.current_workspace, marker_key)
                 else:
                     self.get_logger().warn(
                         f"[검사] 나사 '{marker_key}' 토크 미달 → DB status = defect"
@@ -1129,7 +1130,7 @@ class RobotController(Node):
             # ── 나사 삽입 깊이 보상 (헛잡음 방지) ──────────────────────────
             # 2 사이클마다 접근 방향 축으로 1.5mm씩 전진하여 나사 깊이를 따라감
             if cycle > 0 and cycle % 2 == 0:
-                down_step = 1.5  # mm 단위
+                down_step = 1.0  # mm 단위
                 self.get_logger().info(
                     f"[grip]   [사이클 {cycle+1}] 나사 깊이 보상: "
                     f"접근축=[{_ds}{_AX[_di]}] 방향으로 {down_step}mm 전진"
