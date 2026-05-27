@@ -88,6 +88,17 @@
     <tr><td nowrap>전체 파트 진행 상황 검토 및 최종 통합 방향 조율</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>팀장/통합 관리</td><td nowrap>최종 점검</td><td nowrap>완료</td></tr>
     <tr><td nowrap>DATABASE_STRUCTURE.md 및 API_USAGE.md 문서화 방향 정리</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>문서화/DB</td><td nowrap>문서화</td><td nowrap>완료</td></tr>
     <tr><td nowrap>external_exports 및 legacy fallback 구조 검토</td><td nowrap>2026년 5월 26일</td><td nowrap>성웅</td><td nowrap>Firebase/DB</td><td nowrap>확장 구조 검토</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>GitHub README용 성웅 담당 작업 타임라인 최종 정리</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>GitHub/문서화</td><td nowrap>README 정리</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>YOLO 및 Firebase DB 디버깅 내용을 README 작업 타임라인에 반영</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>문서화/디버깅 정리</td><td nowrap>내용 반영</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>팀장 역할, 프로젝트 기획, 일정 조율, 파트별 검토 및 피드백 내용 README 반영</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>팀장/문서화</td><td nowrap>역할 정리</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>3D 매핑 파트 기여 내용을 팀원 구현 지원 및 디버깅 조언 중심으로 수정</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>팀장/3D 매핑 지원</td><td nowrap>기여도 정리</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>GitHub README 표 형식 수정 및 표시 오류 개선</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>GitHub/문서화</td><td nowrap>문서 표시 개선</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>최종 발표 전 시스템 아키텍처, 플로우차트, DB 구조, YOLO 디버깅 내용 점검</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>발표 준비/최종 점검</td><td nowrap>발표 준비</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>최종 발표 자료 흐름 및 팀원별 발표 내용 조율</td><td nowrap>2026년 5월 27일</td><td nowrap>성웅</td><td nowrap>팀장/발표 조율</td><td nowrap>발표 리허설 준비</td><td nowrap>완료</td></tr>
+    <tr><td nowrap>협동2 최종 발표 진행 및 시스템 구현 내용 설명</td><td nowrap>2026년 5월 28일</td><td nowrap>성웅</td><td nowrap>최종 발표</td><td nowrap>발표</td><td nowrap>예정</td></tr>
+    <tr><td nowrap>YOLO 기반 볼트 인식, Firebase DB 구조 개선, 로봇/DB 연동 구조 발표</td><td nowrap>2026년 5월 28일</td><td nowrap>성웅</td><td nowrap>최종 발표/기술 설명</td><td nowrap>기술 발표</td><td nowrap>예정</td></tr>
+    <tr><td nowrap>시스템 아키텍처 및 플로우차트 기반 전체 시스템 흐름 발표</td><td nowrap>2026년 5월 28일</td><td nowrap>성웅</td><td nowrap>최종 발표/시스템 설명</td><td nowrap>구조 발표</td><td nowrap>예정</td></tr>
+    <tr><td nowrap>최종 발표 질의응답 대응 및 프로젝트 기여 내용 설명</td><td nowrap>2026년 5월 28일</td><td nowrap>성웅</td><td nowrap>최종 발표/Q&A</td><td nowrap>질의응답</td><td nowrap>예정</td></tr>
   </tbody>
 </table>
 
