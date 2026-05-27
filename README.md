@@ -1,8 +1,5 @@
 # JoinGo
 
-<p align="center">
-  <img src="./docs/images/system_architecture.png" alt="JoinGo System Architecture" width="900">
-</p>
 
 <p align="center">
   <b>Scan-First 기반 공간 적응형 로봇 검사 자동화 플랫폼</b><br>
