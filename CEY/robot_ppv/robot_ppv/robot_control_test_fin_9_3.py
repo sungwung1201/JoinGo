@@ -1128,7 +1128,7 @@ class RobotController(Node):
 
         for cycle in range(MAX_CYCLE):
             # ── 나사 삽입 깊이 보상 (헛잡음 방지) ──────────────────────────
-            # 2 사이클마다 접근 방향 축으로 1.5mm씩 전진하여 나사 깊이를 따라감
+            # 2 사이클마다 접근 방향 축으로 1.0mm씩 전진하여 나사 깊이를 따라감
             if cycle > 0 and cycle % 2 == 0:
                 down_step = 1.0  # mm 단위
                 self.get_logger().info(
