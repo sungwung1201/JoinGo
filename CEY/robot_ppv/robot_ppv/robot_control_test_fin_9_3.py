@@ -921,7 +921,7 @@ class RobotController(Node):
           1. 그리퍼 열기 (빈 상태 확보)
           2. J6 +360도 비동기 회전 시작 (vel=15)
           3. 50ms 주기로 J6 외력 토크 샘플링
-          4. 최솟값(가장 큰 음수) × 1.2 를 workspace 임계값으로 저장
+          4. 최솟값(가장 큰 음수) × 1.5 를 workspace 임계값으로 저장
 
         Returns:
             float: 측정된 임계값(음수, 예: -0.6). 측정 실패 시 기본값 -0.5 반환.
@@ -993,14 +993,14 @@ class RobotController(Node):
 
             # 6. 토크 절댓값의 최댓값 추출 후 20% 여유 적용
             abs_max = max(abs(t) for t in torque_samples)
-            threshold = round(abs_max * 1.2, 3)
+            threshold = round(abs_max * 1.5, 3)
 
             self.workspace_torque_threshold[workspace_name] = threshold
             self.get_logger().info(
                 f"[무부하 토크] ★ 측정 완료 ── "
                 f"샘플 수: {len(torque_samples)}, "
                 f"절댓값 최댓값: {abs_max:+.3f} N·m, "
-                f"적용 임계값(절댓값×1.2): {threshold:+.3f} N·m"
+                f"적용 임계값(절댓값×1.5): {threshold:+.3f} N·m"
             )
             return threshold
 
